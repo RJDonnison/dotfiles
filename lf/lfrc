@@ -1,0 +1,107 @@
+set previewer ctpv
+set cleaner ctpvclear
+&ctpv -s $id
+&ctpvquit $id
+
+set info size
+set info time
+set scrolloff 5
+
+set ingorecase true
+set icons true
+source ~/.config/lf/icons
+
+# execute current file (must be executable)
+map X !$f
+
+cmd mkdir ${{
+    name=$(gum input --prompt "Directory Name: " --placeholder "directory") 
+    [ -n "$name" ] && mkdir -p "$name"
+}}
+
+cmd mkfile ${{
+    name=$(gum input --prompt "File Name: " --placeholder "file")
+    if [ -n "$name" ]; then
+      mkdir -p "$(dirname "$name")"
+      touch "$name"
+    fi
+}}
+
+cmd delete ${{
+    gum confirm && rm -rf $fx
+}}
+
+map D delete
+
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 5 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+map <c-f> :fzf_jump
+
+# extract the current file with the right command
+# (xkcd link: https://xkcd.com/1168/)
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+
+cmd qto ${{
+    printf %s "$PWD" > ~/.cache/lf_lastdir
+    lf -remote "send $id quit"
+}}
+map q qto
+map Q quit
+
+
+map d
+map m
+
+map . set hidden!
+map p paste
+map x cut
+map y copy
+map mv move
+map md mkdir
+map mf mkfile
+map r rename
+map R reload
+
+map gc cd ~/.config
+map gD cd ~/Documents
+map gd cd ~/Downloads
+map gs cd ~/.local/bin
+map gr cd ~/Repos
