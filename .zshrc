@@ -61,3 +61,5 @@ alias pm='sudo pacman'
 
 alias da='dotfiles-add'
 alias du='dotfiles-update'
+
+alias makeb='bear -- make'
