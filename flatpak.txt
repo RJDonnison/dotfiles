@@ -1,0 +1,12 @@
+com.discordapp.Discord
+com.github.finefindus.eyedropper
+com.jetbrains.IntelliJ-IDEA-Ultimate
+com.jetbrains.PyCharm-Professional
+com.mattermost.Desktop
+com.spotify.Client
+com.todoist.Todoist
+com.valvesoftware.Steam
+com.vivaldi.Vivaldi
+md.obsidian.Obsidian
+org.inkscape.Inkscape
+org.videolan.VLC
