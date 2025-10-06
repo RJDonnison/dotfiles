@@ -52,14 +52,14 @@ alias gd='cd ~/Downloads'
 alias gc='cd ~/.config'
 alias gr='cd ~/Repos'
 alias gs='cd ~/.local/bin'
-alias dg='cd ~/.dotfiles'
+alias gdot='cd ~/.dotfiles'
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias lg='lazygit'
 
 alias pm='sudo pacman'
 
-alias da='dotfiles-add'
-alias du='dotfiles-update'
+alias dota='dotfiles-add'
+alias dotu='dotfiles-update'
 
-alias makeb='bear -- make'
+alias makeb='make clean && bear -- make'
