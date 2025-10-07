@@ -15,6 +15,11 @@ echo "[*] Installing packages..."
 
 yay -S --needed - <yay.txt
 
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
 gum confirm "Would you like to install flatpak apps?" && grep -v '^$' flatpak.txt | xargs -I {} flatpak install -y {}
 
 gum confirm "Would you like to configure bluetooth?" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
@@ -24,20 +29,20 @@ echo "[*] Moving configs..."
 for cfg in "$BASE_DIR/config/"*; do
   file=$(basename "$cfg")
   [ -d "$HOME/.config/$file" ] && mv "$BASE_DIR/config/$file" "$HOME/.config/$file.bak"
-  cp "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "Configured $file"
+  cp -r "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
 done
 
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-cp .zshrc "$HOME/.zshrc" && echo "Configured zsh"
+cp -r .zshrc "$HOME/.zshrc" && echo "[+] Configured zsh"
 
 [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
-cp .p10k.zsh "$HOME/.p10k.zsh" && echo "Configured PowerLevel10k"
+cp -r .p10k.zsh "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
 
 if [ -d "$BASE_DIR/desktop" ]; then
     echo "[*] Copying desktop files..."
     for file in "$BASE_DIR/desktop/"*; do
         if [ -f "$file" ]; then
-            sudo cp "$file" "$desktop_dir/"
+            sudo cp -r "$file" "$desktop_dir/"
             echo "[*] Copied $(basename "$file")"
         fi
     done

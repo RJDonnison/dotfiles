@@ -5,13 +5,15 @@ This is my [Endeavour OS](https://endeavouros.com) with [KDE Plasma](https://kde
 ## Installation
 
 The provided install script will install all the packages in `yay.txt`, it will also provide the option
-to install all flatpak apps in `flatpak.txt`. It will also configure the system with the theme and
-general settings.
+to install all flatpak apps in `flatpak.txt`. It will configure the system and install the theme.
 
 1. Clone the repo `git clone https://github.com/RJDonnison/dotfiles.git`
 2. Make `install.sh` executable with `chmod +x install.sh`
 3. Install system `./install.sh`
-4. Enjoy :)
+4. set icons, colors, plasma style, window deco, enable better blur in settings
+5. set active kvantum theme in kvantum manager
+6. set application style as kvantum theme in settings
+7. Enjoy :)
 
 ## Apps
 
@@ -27,8 +29,10 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 
 ## ROADMAP
 
-- [x] icons
-- [x] custom desktop files
-- [x] panel
+- [ ] panel - instructions
+- [ ] add .oh-my-zsh.sh - install
 - [ ] kwin scripts
-- [x] keybinds
+- [ ] keybinds - use export
+- [ ] install desktops correct - install
+- [ ] add option to remove unused apps - install
+- [ ] add wallpaper
