@@ -35,8 +35,6 @@ dmidecode
 dmraid
 dnsmasq
 docx2txt
-dolphin
-dolphin-plugins
 dosfstools
 downgrade
 dracut

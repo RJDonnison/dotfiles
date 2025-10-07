@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=lf
+Comment=Launches the lf file manager
+Icon=utilities-terminal
+Terminal=false
+Exec=kitty --title "lf" --class "lf" --start-as=maximized --hold -e zsh -l -i -c 'lf; exec zsh'
+Categories=ConsoleOnly;System;FileTools;FileManager
+MimeType=inode/directory;

@@ -6,6 +6,7 @@ AURORAE_DIR="$HOME/.local/share/aurorae/themes"
 PLASMA_DIR="$HOME/.local/share/plasma/desktoptheme"
 KVANTUM_DIR="$HOME/.config/Kvantum"
 FONT_DIR="$HOME/.local/share/fonts"
+DESKTOP_DIR="/usr/share/applications/"
 
 echo "[*] Installing packages..."
 
@@ -26,6 +27,19 @@ cp .zshrc "$HOME/.zshrc" && echo "Configured zsh"
 
 [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
 cp .p10k.zsh "$HOME/.p10k.zsh" && echo "Configured PowerLevel10k"
+
+if [ -d "$base_dir/desktop" ]; then
+    echo "[*] Copying desktop files..."
+    for file in "$base_dir/desktop/"*; do
+        if [ -f "$file" ]; then
+            sudo cp "$file" "$desktop_dir/"
+            echo "[*] Copied $(basename "$file")"
+        fi
+    done
+    echo "[*] Desktop files configured."
+else
+    echo "[!] Desktop source directory not found: $base_dir/desktop"
+fi
 
 echo "[*] Installing Mystical-Blue (Jux) Theme..."
 
