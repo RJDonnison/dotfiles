@@ -31,4 +31,4 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 - [x] custom desktop files
 - [ ] panel
 - [ ] kwin scripts
-- [ ] keybinds
+- [x] keybinds

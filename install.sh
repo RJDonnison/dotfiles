@@ -19,7 +19,6 @@ gun confirm "Would you like to configure bluetooth?" && sudo systemctl start blu
 
 echo "[*] Moving configs..."
 
-CONFIGS=(ctpv kitty lazygit lf nvim rofi)
 for cfg in "$BASE_DIR/config/"*; do
   [ -d "$HOME/.config/$cfg" ] && mv "$HOME/.config/$cfg" "$HOME/.config/$cfg.bak"
   cp "$BASE_DIR/config/$cfg" "$HOME/.config/$cfg" && echo "Configured $cfg"

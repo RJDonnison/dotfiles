@@ -1,0 +1,10 @@
+[62bf8f2e-de0c-4ddd-ac84-07440d63fb6e]
+Description=Opacity
+opacityactive=95
+opacityactiverule=2
+opacityinactive=75
+opacityinactiverule=2
+
+[General]
+count=1
+rules=62bf8f2e-de0c-4ddd-ac84-07440d63fb6e
