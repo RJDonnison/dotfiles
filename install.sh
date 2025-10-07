@@ -7,6 +7,7 @@ PLASMA_DIR="$HOME/.local/share/plasma/desktoptheme"
 KVANTUM_DIR="$HOME/.config/Kvantum"
 FONT_DIR="$HOME/.local/share/fonts"
 DESKTOP_DIR="/usr/share/applications/"
+ICONS_DIR="$HOME/.local/share/icons"
 
 echo "[*] Installing packages..."
 
@@ -77,3 +78,12 @@ if [ "$FONT_COUNT" -lt 20 ]; then
 else
     echo "[=] JetBrainsMono already installed ($FONT_COUNT files)"
 fi
+
+echo "[*] Installing icons..."
+
+mkdir -p "$ICONS_DIR"
+
+tar -xzf "$BASE_DIR/Icons.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed Icons: YAMIS"
+
+echo "[+] Installed icons"
+
