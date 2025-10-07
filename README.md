@@ -22,7 +22,7 @@ as a app launcher.
 ## Theme
 
 The system theme is largely the [Mystical Blue Theme](https://github.com/juxtopposed/Mystical-Blue-Theme) with some minor changes.
-Icons are from [Yet Another Monocrom Icon Set](https://store.kde.org/p/2303161) with some custom icons for my apps that were missing them.
+Icons are from [Yet Another Monocrom Icon Set](https://store.kde.org/p/2303161) with some custom icons for apps that were missing them.
 The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono/)
 
 ## ROADMAP
