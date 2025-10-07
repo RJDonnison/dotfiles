@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -e
+
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 COLOR_DIR="$HOME/.local/share/color-schemes"
 AURORAE_DIR="$HOME/.local/share/aurorae/themes"
@@ -15,13 +17,14 @@ yay -S --needed - <yay.txt
 
 gum confirm "Would you like to install flatpak apps?" && grep -v '^$' flatpak.txt | xargs -I {} flatpak install -y {}
 
-gun confirm "Would you like to configure bluetooth?" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
+gum confirm "Would you like to configure bluetooth?" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
 
 echo "[*] Moving configs..."
 
 for cfg in "$BASE_DIR/config/"*; do
-  [ -d "$HOME/.config/$cfg" ] && mv "$HOME/.config/$cfg" "$HOME/.config/$cfg.bak"
-  cp "$BASE_DIR/config/$cfg" "$HOME/.config/$cfg" && echo "Configured $cfg"
+  file=$(basename "$cfg")
+  [ -d "$HOME/.config/$file" ] && mv "$BASE_DIR/config/$file" "$HOME/.config/$file.bak"
+  cp "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "Configured $file"
 done
 
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
@@ -30,7 +33,7 @@ cp .zshrc "$HOME/.zshrc" && echo "Configured zsh"
 [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
 cp .p10k.zsh "$HOME/.p10k.zsh" && echo "Configured PowerLevel10k"
 
-if [ -d "$base_dir/desktop" ]; then
+if [ -d "$BASE_DIR/desktop" ]; then
     echo "[*] Copying desktop files..."
     for file in "$BASE_DIR/desktop/"*; do
         if [ -f "$file" ]; then
@@ -82,7 +85,7 @@ echo "[*] Installing icons..."
 
 mkdir -p "$ICONS_DIR"
 
-tar -xzf "$BASE_DIR/Icons.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed Icons: YAMIS"
+tar -xzf "$BASE_DIR/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed Icons: YAMIS"
 
 echo "[+] Installed icons"
 
