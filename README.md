@@ -28,6 +28,7 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 ## ROADMAP
 
 - [ ] icons
-- [ ] custom desktop files
+- [x] custom desktop files
 - [ ] pannel
 - [ ] kwin scripts
+- [ ] keybinds

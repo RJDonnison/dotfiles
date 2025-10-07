@@ -14,6 +14,8 @@ yay -S --needed - <yay.txt
 
 gum confirm "Would you like to install flatpak apps" && grep -v '^$' flatpak.txt | xargs -I {} flatpak install -y {}
 
+gun confirm "Would you like to configure bluetooth" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
+
 echo "[*] Moving configs..."
 
 CONFIGS=(ctpv kitty lazygit lf nvim rofi)
