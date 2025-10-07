@@ -29,6 +29,6 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 
 - [x] icons
 - [x] custom desktop files
-- [ ] panel
+- [x] panel
 - [ ] kwin scripts
 - [x] keybinds
