@@ -19,9 +19,9 @@ gun confirm "Would you like to configure bluetooth" && sudo systemctl start blue
 echo "[*] Moving configs..."
 
 CONFIGS=(ctpv kitty lazygit lf nvim rofi)
-for cfg in "${CONFIGS[@]}"; do
+for cfg in "$BASE_DIR/config/"*; do
   [ -d "$HOME/.config/$cfg" ] && mv "$HOME/.config/$cfg" "$HOME/.config/$cfg.bak"
-  cp "$BASE_DIR/$cfg" "$HOME/.config/$cfg" && echo "Configured $cfg"
+  cp "$BASE_DIR/config/$cfg" "$HOME/.config/$cfg" && echo "Configured $cfg"
 done
 
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
@@ -32,7 +32,7 @@ cp .p10k.zsh "$HOME/.p10k.zsh" && echo "Configured PowerLevel10k"
 
 if [ -d "$base_dir/desktop" ]; then
     echo "[*] Copying desktop files..."
-    for file in "$base_dir/desktop/"*; do
+    for file in "$BASE_DIR/desktop/"*; do
         if [ -f "$file" ]; then
             sudo cp "$file" "$desktop_dir/"
             echo "[*] Copied $(basename "$file")"
