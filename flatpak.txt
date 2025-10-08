@@ -9,4 +9,5 @@ com.valvesoftware.Steam
 com.vivaldi.Vivaldi
 md.obsidian.Obsidian
 org.inkscape.Inkscape
+org.libreoffice.LibreOffice
 org.videolan.VLC
