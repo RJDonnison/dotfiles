@@ -5,9 +5,16 @@ switch-to-activity-e2b46689-87fa-4fc8-9ba2-91f59858ff45=
 Exec=rofi -show drun
 Name=rofi
 
+[Custom Commands][net.local.rofi-4.desktop]
+Exec=rofi -show drun
+Name=rofi
+
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch to Last-Used Keyboard Layout=Meta+Alt+L
 Switch to Next Keyboard Layout=Meta+Alt+K
+
+[com.discordapp.Discord.desktop][Global Shortcuts]
+_launch=Meta+D
 
 [com.github.finefindus.eyedropper.desktop][Global Shortcuts]
 _launch=Meta+Shift+C
@@ -68,11 +75,11 @@ MoveZoomRight=
 MoveZoomUp=
 Overview=
 Setup Window Shortcut=
-Show Desktop=Meta+K; Meta+D
+Show Desktop=Meta+K
 Switch One Desktop Down=Meta+Ctrl+Down
 Switch One Desktop Up=Meta+Ctrl+Up
 Switch One Desktop to the Left=Meta+H; Meta+Ctrl+Left
-Switch One Desktop to the Right=Meta+L; Meta+Ctrl+Right
+Switch One Desktop to the Right=Meta+Ctrl+Right; Meta+L
 Switch Window Down=Meta+Alt+Down
 Switch Window Left=Meta+Alt+Left
 Switch Window Right=Meta+Alt+Right
@@ -142,11 +149,11 @@ TileUpperRightThirdWideMiddle=Meta+Ctrl+Num+9
 Toggle Night Color=
 Toggle Window Raise/Lower=
 Walk Through Windows=Meta+Tab; Alt+Tab
-Walk Through Windows (Reverse)=Meta+Shift+Tab; Alt+Shift+Tab
+Walk Through Windows (Reverse)=Alt+Shift+Tab; Meta+Shift+Tab
 Walk Through Windows Alternative=
 Walk Through Windows Alternative (Reverse)=
 Walk Through Windows of Current Application=Meta+`; Alt+`
-Walk Through Windows of Current Application (Reverse)=Meta+~; Alt+~
+Walk Through Windows of Current Application (Reverse)=Alt+~; Meta+~
 Walk Through Windows of Current Application Alternative=
 Walk Through Windows of Current Application Alternative (Reverse)=
 Window Above Other Windows=
@@ -247,8 +254,15 @@ stopmedia=Media Stop
 [net.local.rofi-2.desktop][Global Shortcuts]
 _launch=Meta+Space
 
+[net.local.rofi-4.desktop][Global Shortcuts]
+_launch=Meta+Space
+
 [nvim.desktop][Global Shortcuts]
 _launch=Meta+N
+
+[org.kde.discover.desktop][Global Shortcuts]
+Updates=
+_launch=Meta+Shift+D
 
 [org.kde.kcalc.desktop][Global Shortcuts]
 _launch=Calculator
@@ -260,7 +274,7 @@ _launch=
 
 [org.kde.krunner.desktop][Global Shortcuts]
 RunClipboard=
-_launch=Search; Alt+Space; Alt+F2
+_launch=Alt+F2; Alt+Space; Search
 
 [org.kde.kscreen.desktop][Global Shortcuts]
 ShowOSD=Meta+P; Display
@@ -279,7 +293,7 @@ OpenWithoutScreenshot=
 RecordRegion=Meta+Shift+R; Meta+R
 RecordScreen=Meta+Alt+R
 RecordWindow=Meta+Ctrl+R
-RectangularRegionScreenShot=Meta+Shift+Print
+RectangularRegionScreenShot=Meta+Shift+Print; Meta+Shift+S
 WindowUnderCursorScreenShot=Meta+Ctrl+Print
 _launch=Print
 
@@ -301,7 +315,7 @@ PowerOff=Power Off
 Sleep=Sleep
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=
-powerProfile=Battery; Meta+B
+powerProfile=Meta+B; Battery
 
 [plasmashell][Global Shortcuts]
 activate application launcher=Alt+F1; Meta
@@ -328,7 +342,7 @@ previous activity=Meta+Shift+A
 repeat_action=
 show dashboard=Ctrl+F12
 show-barcode=
-show-on-mouse-pos=Meta+V; Meta+C
+show-on-mouse-pos=Meta+C; Meta+V
 stop current activity=
 switch to next activity=
 switch to previous activity=
