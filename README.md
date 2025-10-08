@@ -56,5 +56,11 @@ The widgets from left to right in the images are SCP (icon com.abisource.AbiWord
 - Set default applications
 - Add a few extra virtual desktops
 - Increase screen locking time
+- Disable confirm on session exit
 
 ![Image of desktop](./images/desktop.png)
+
+## To Fix
+
+- [ ]zsh
+- [ ]desktops
