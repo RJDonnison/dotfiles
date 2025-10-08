@@ -30,9 +30,9 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 ## ROADMAP
 
 - [ ] panel - instructions
-- [ ] add .oh-my-zsh.sh - install
+- [x] add .oh-my-zsh.sh - install
 - [ ] kwin scripts
-- [ ] keybinds - use export
-- [ ] install desktops correct - install
+- [x] keybinds - use export
+- [x] install desktops correct - install
 - [ ] add option to remove unused apps - install
 - [ ] add wallpaper

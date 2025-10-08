@@ -55,12 +55,12 @@ echo "[*] Installing Mystical-Blue (Jux) Theme..."
 
 mkdir -p "$COLOR_DIR" "$AURORAE_DIR" "$PLASMA_DIR" "$KVANTUM_DIR" "$FONT_DIR"
 
-cp "$BASE_DIR/JuxTheme.colors" "$COLOR_DIR/" && echo "[+] Installed color scheme: JuxTheme"
-tar -xzf "$BASE_DIR/JuxDeco.tar.gz" -C "$AURORAE_DIR/" && echo "[+] Installed Aurorae decoration: JuxDeco"
-tar -xzf "$BASE_DIR/JuxPlasma.tar.gz" -C "$PLASMA_DIR/" && echo "[+] Installed Plasma theme: JuxPlasma"
+cp "$BASE_DIR/theme/JuxTheme.colors" "$COLOR_DIR/" && echo "[+] Installed color scheme: JuxTheme"
+tar -xzf "$BASE_DIR/theme/JuxDeco.tar.gz" -C "$AURORAE_DIR/" && echo "[+] Installed Aurorae decoration: JuxDeco"
+tar -xzf "$BASE_DIR/theme/JuxPlasma.tar.gz" -C "$PLASMA_DIR/" && echo "[+] Installed Plasma theme: JuxPlasma"
 
-if [ -f "$BASE_DIR/NoMansSkyJux.tar.gz" ]; then
-    tar -xzf "$BASE_DIR/NoMansSkyJux.tar.gz" -C "$KVANTUM_DIR/"
+if [ -f "$BASE_DIR/theme/NoMansSkyJux.tar.gz" ]; then
+    tar -xzf "$BASE_DIR/theme/NoMansSkyJux.tar.gz" -C "$KVANTUM_DIR/"
     echo "[+] Installed Kvantum theme: NoMansSkyJux"
 fi
 
@@ -90,7 +90,7 @@ echo "[*] Installing icons..."
 
 mkdir -p "$ICONS_DIR"
 
-tar -xzf "$BASE_DIR/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed Icons: YAMIS"
+tar -xzf "$BASE_DIR/theme/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed Icons: YAMIS"
 
 echo "[+] Installed icons"
 
