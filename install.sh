@@ -54,8 +54,9 @@ if [ -d "$BASE_DIR/desktop" ]; then
   for file in "$BASE_DIR/desktop/"*; do
     filename=$(basename "$file")
     if [ -f "$BASE_DIR/desktop/$filename" ]; then
+      sudo rm "$desktop_dir/$filename"
       sudo cp -r "$BASE_DIR/desktop/$filename" "$desktop_dir/"
-      echo "[*] Copied $(basename "$file")"
+      echo "[*] Copied $(basename "$filename")"
     fi
   done
   echo "[*] Desktop files configured."
@@ -106,6 +107,6 @@ tar -xzf "$BASE_DIR/theme/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed 
 
 echo "[+] Installed icons"
 
-gum confirm "Would you like to remove unneeded apps?" && yay -Rns <"$BASE_DIR/remove.txt" && yay -Rns $(yay -Qdtq)
+gum confirm "Would you like to remove unneeded apps?" && yay -Rns <"$BASE_DIR/remove.txt"
 
 echo "[+] System installed"
