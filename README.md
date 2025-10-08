@@ -62,5 +62,5 @@ The widgets from left to right in the images are SCP (icon com.abisource.AbiWord
 
 ## To Fix
 
-- [ ]zsh
-- [ ]desktops
+- [ ] zsh
+- [ ] desktops
