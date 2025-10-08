@@ -31,7 +31,6 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 
 - [ ] panel - instructions
 - [x] add .oh-my-zsh.sh - install
-- [ ] kwin scripts
 - [x] keybinds - use export
 - [x] install desktops correct - install
 - [ ] add option to remove unused apps - install

@@ -13,14 +13,14 @@ ICONS_DIR="$HOME/.local/share/icons"
 
 echo "[*] Installing packages..."
 
-yay -S --needed - <yay.txt
+yay -S --needed - < "$BASE_DIR/yay.txt"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-gum confirm "Would you like to install flatpak apps?" && grep -v '^$' flatpak.txt | xargs -I {} flatpak install -y {}
+gum confirm "Would you like to install flatpak apps?" && grep -v '^$' "$BASE_DIR/flatpak.txt" | xargs -I {} flatpak install -y {}
 
 gum confirm "Would you like to configure bluetooth?" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
 
@@ -93,4 +93,8 @@ mkdir -p "$ICONS_DIR"
 tar -xzf "$BASE_DIR/theme/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed Icons: YAMIS"
 
 echo "[+] Installed icons"
+
+gum confirm "Would you like to remove unneeded apps?" && yay -Rns < "$BASE_DIR/remove.txt" && yay -Rns $(yay -Qdtq)
+
+echo "[+] System installed"
 
