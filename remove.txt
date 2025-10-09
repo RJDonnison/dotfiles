@@ -1,6 +1,4 @@
 firefox
-dolphin-plugins
-dolphin
 endeavouros-konsole-colors
 konsole
 kate

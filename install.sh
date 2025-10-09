@@ -106,6 +106,5 @@ tar -xzf "$BASE_DIR/theme/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed 
 
 echo "[+] Installed icons"
 
-gum confirm "Would you like to remove unneeded apps?" && yay -Rns <"$BASE_DIR/remove.txt" && yay -Rns $(yay -Qdtq)
-
+gum confirm "Would you like to remove unneeded apps?" && xargs -a "$BASE_DIR/remove.txt" yay -Rns
 echo "[+] System installed"
