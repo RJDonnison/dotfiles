@@ -17,7 +17,7 @@ yay -S --needed - <"$BASE_DIR/yay.txt"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "[*] Installing Oh My Zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattende
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
       "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
@@ -28,7 +28,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
       "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/plugins}/zsh-syntax-highlighting"
   fi
 
-  echo "[+] zsh installed"d
+  echo "[+] zsh installed"
 fi
 
 gum confirm "Would you like to install flatpak apps?" && grep -v '^$' "$BASE_DIR/flatpak.txt" | xargs -I {} flatpak install -y {}
@@ -39,23 +39,24 @@ echo "[*] Moving configs..."
 
 for cfg in "$BASE_DIR/config/"*; do
   file=$(basename "$cfg")
-  [ -d "$HOME/.config/$file" ] && mv "$BASE_DIR/config/$file" "$HOME/.config/$file.bak"
+  [ -d "$HOME/.config/$file" ] && mv "$HOME/.config/$file" "$HOME/.config/$file.bak"
   cp -r "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
 done
 
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-cp -r .zshrc "$HOME/.zshrc" && echo "[+] Configured zsh"
+cp -r "$BASE_DIR/.zshrc" "$HOME/.zshrc" && echo "[+] Configured zsh"
 
 [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
-cp -r .p10k.zsh "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
+cp -r "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
 
 if [ -d "$BASE_DIR/desktop" ]; then
   echo "[*] Copying desktop files..."
   for file in "$BASE_DIR/desktop/"*; do
     filename=$(basename "$file")
     if [ -f "$BASE_DIR/desktop/$filename" ]; then
-      sudo cp -r "$BASE_DIR/desktop/$filename" "$desktop_dir/"
-      echo "[*] Copied $(basename "$file")"
+      sudo rm -f "$DESKTOP_DIR/$filename"
+      sudo cp -r "$BASE_DIR/desktop/$filename" "$DESKTOP_DIR/"
+      echo "[*] Copied $(basename "$filename")"
     fi
   done
   echo "[*] Desktop files configured."
@@ -107,4 +108,5 @@ tar -xzf "$BASE_DIR/theme/YAMIS.tar.gz" -C "$ICONS_DIR/" && echo "[+] Installed 
 echo "[+] Installed icons"
 
 gum confirm "Would you like to remove unneeded apps?" && xargs -a "$BASE_DIR/remove.txt" yay -Rns
+
 echo "[+] System installed"
