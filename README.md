@@ -44,7 +44,7 @@ To setup the panel like the images you must install Panel Colorizer, SCP, and Pl
 3. Open Panel Colorizer config and set preset to RJDonnisonPanel
 4. Set widgets
 
-The widgets from left to right in the images are SCP (icon com.abisource.AbiWord), spacer, Icons-Only task manager, spacer, PlasMusic Toolbar, System Tray, and Digital Clock.
+The widgets from left to right in the images are [SCP](https://store.kde.org/p/2107868) (icon com.abisource.AbiWord), spacer, Icons-Only task manager, spacer, PlasMusic Toolbar, System Tray, and Digital Clock.
 
 ## Recommended Settings
 
