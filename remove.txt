@@ -2,3 +2,5 @@ firefox
 endeavouros-konsole-colors
 konsole
 kate
+nano-syntax-highlighting
+nano
