@@ -57,5 +57,6 @@ The widgets from left to right in the images are [SCP](https://store.kde.org/p/2
 - Add a few extra virtual desktops
 - Increase screen locking time
 - Disable confirm on session exit
+- Disable shake to enlarge mouse
 
 ![Image of desktop](./images/desktop.png)
