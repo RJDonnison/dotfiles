@@ -10,6 +10,7 @@ KVANTUM_DIR="$HOME/.config/Kvantum"
 FONT_DIR="$HOME/.local/share/fonts"
 DESKTOP_DIR="/usr/share/applications/"
 ICONS_DIR="$HOME/.local/share/icons"
+BIN_DIR="$HOME/.local/bin"
 
 echo "[*] Installing packages..."
 
@@ -55,13 +56,31 @@ gum confirm "Would you like to install custom desktops?" && if [ -d "$BASE_DIR/d
     filename=$(basename "$file")
     if [ -f "$BASE_DIR/desktop/$filename" ]; then
       sudo rm -f "$DESKTOP_DIR/$filename"
-      sudo cp -r "$BASE_DIR/desktop/$filename" "$DESKTOP_DIR/"
+      sudo ln -s "$BASE_DIR/desktop/$filename" "$DESKTOP_DIR/"
       echo "[*] Copied $(basename "$filename")"
     fi
   done
   echo "[*] Desktop files configured."
 else
   echo "[!] Desktop source directory not found: $BASE_DIR/desktop"
+fi
+
+if gum confirm "Would you like to install dotfile management scripts?"; then
+  echo "[*] Installing user scripts..."
+  mkdir -p "$BIN_DIR"
+  if [ -d "$BASE_DIR/scripts" ]; then
+    for script in "$BASE_DIR/scripts/"*; do
+      if [ -f "$script" ]; then
+        filename=$(basename "$script")
+        ln -sf "$script" "$BIN_DIR/$filename"
+        chmod u+x "$BIN_DIR/$filename"
+        echo "[+] Installed script: $filename"
+      fi
+    done
+    echo "[+] User scripts installed."
+  else
+    echo "[!] Scripts directory not found: $BASE_DIR/scripts"
+  fi
 fi
 
 echo "[*] Installing Mystical-Blue (Jux) Theme..."
