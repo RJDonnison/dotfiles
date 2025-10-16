@@ -57,9 +57,9 @@ alias gdot='cd ~/.dotfiles'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias lg='lazygit'
 
-alias pm='sudo pacman'
-
 alias dota='dotfiles-add'
 alias dotu='dotfiles-update'
 
 alias makeb='make clean && bear -- make'
+export JAVA_HOME=/usr/lib/jvm/default
+export PATH=$JAVA_HOME/bin:$PATH
