@@ -12,43 +12,46 @@ DESKTOP_DIR="/usr/share/applications/"
 ICONS_DIR="$HOME/.local/share/icons"
 BIN_DIR="$HOME/.local/bin"
 
-echo "[*] Installing packages..."
-
-yay -S --needed - <"$BASE_DIR/yay.txt"
-
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "[*] Installing Oh My Zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-      "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-  fi
-
-  if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/plugins}/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-      "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/plugins}/zsh-syntax-highlighting"
-  fi
-
-  echo "[+] zsh installed"
+if gum confirm "Would you like to install yay packages?"; then
+  echo "[*] Installing packages..."
+  yay -S --needed - <"$BASE_DIR/yay.txt"
 fi
 
 gum confirm "Would you like to install flatpak apps?" && grep -v '^$' "$BASE_DIR/flatpak.txt" | xargs -I {} flatpak install -y {}
 
 gum confirm "Would you like to configure bluetooth?" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
 
-echo "[*] Moving configs..."
+if gum confirm "Would you like to install configs?"; then
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "[*] Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+        "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+    fi
 
-for cfg in "$BASE_DIR/config/"*; do
-  file=$(basename "$cfg")
-  [ -d "$HOME/.config/$file" ] && mv "$HOME/.config/$file" "$HOME/.config/$file.bak"
-  ln -s "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
-done
+    if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/plugins}/zsh-syntax-highlighting" ]; then
+      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+        "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/plugins}/zsh-syntax-highlighting"
+    fi
 
-[ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-ln -s "$BASE_DIR/.zshrc" "$HOME/.zshrc" && echo "[+] Configured zsh"
+    echo "[+] zsh installed"
+  fi
 
-[ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
-ln -s "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
+  echo "[*] Moving configs..."
+
+  for cfg in "$BASE_DIR/config/"*; do
+    file=$(basename "$cfg")
+    [ -d "$HOME/.config/$file" ] && mv "$HOME/.config/$file" "$HOME/.config/$file.bak"
+    ln -s "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
+  done
+
+  [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+  ln -s "$BASE_DIR/.zshrc" "$HOME/.zshrc" && echo "[+] Configured zsh"
+
+  [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
+  ln -s "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
+fi
 
 gum confirm "Would you like to install custom desktops?" && if [ -d "$BASE_DIR/desktop" ]; then
   echo "[*] Copying desktop files..."
