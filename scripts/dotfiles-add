@@ -1,0 +1,46 @@
+#!/bin/zsh
+set -e
+
+if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <src_file> [dest_file]"
+  exit 1
+fi
+
+src_path="$PWD/$1"
+dotfiles_dir="$HOME/.dotfiles"
+dest_path=""
+
+if [ "$#" -eq 2 ]; then
+  dest_path="$dotfiles_dir/$2"
+else
+  dest_path="$dotfiles_dir/$1"
+fi
+
+if [ ! -e "$src_path" ]; then
+    echo "Error: Source file '$src_path' does not exist."
+    exit 1
+fi
+
+if [ -e "$dest_path" ]; then
+  echo "Error: Destination '$dest_path' already exists."
+  exit 1
+fi
+
+if ! gum confirm "Move '$src_path' to '$dest_path' and create symlink?"; then
+    echo "Operation cancelled."
+    exit 0
+fi
+
+mkdir -p $(dirname "$dest_path")
+
+echo "-> Moving file..."
+mv "$src_path" "$dest_path"
+
+echo "-> Creating symlink..."
+ln -s "$dest_path" "$src_path"
+
+git -C "$dotfiles_dir" add .
+git -C "$dotfiles_dir" commit -m "Added $1"
+git -C "$dotfiles_dir" push
+
+echo "$1 successful added to dotfiles" 
