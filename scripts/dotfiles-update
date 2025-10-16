@@ -1,0 +1,31 @@
+#!/bin/zsh
+set -e
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: $0 <message>"
+  exit 1
+fi
+
+target="$HOME/.dotfiles"
+icons_dir="$HOME/.local/share/icons"
+
+echo "Updating dotfiles with message '$1'"
+
+echo "Getting current packages"
+
+yay -Qqe > "$target/yay.txt"
+flatpak list --app --columns=application > "$target/flatpak.txt"
+
+echo "Updating themes"
+if [ -d "$icons_dir/YAMIS" ]; then
+  tar -czf "$target/theme/YAMIS.tar.gz" -C "$icons_dir" YAMIS
+  echo "YAMIS icon theme updated"
+else
+  echo "YAMIS icon theme not found at $icons_dir/YAMIS, skipping update."
+fi
+
+git -C "$target" add .
+git -C "$target" commit -m "$1"
+git -C "$target" push
+
+echo "Successfuly updated dotfiles"
