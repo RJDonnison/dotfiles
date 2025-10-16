@@ -40,16 +40,16 @@ echo "[*] Moving configs..."
 for cfg in "$BASE_DIR/config/"*; do
   file=$(basename "$cfg")
   [ -d "$HOME/.config/$file" ] && mv "$HOME/.config/$file" "$HOME/.config/$file.bak"
-  cp -r "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
+  ln -s "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
 done
 
 [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-cp -r "$BASE_DIR/.zshrc" "$HOME/.zshrc" && echo "[+] Configured zsh"
+ln -s "$BASE_DIR/.zshrc" "$HOME/.zshrc" && echo "[+] Configured zsh"
 
 [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
-cp -r "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
+ln -s "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
 
-if [ -d "$BASE_DIR/desktop" ]; then
+gum confirm "Would you like to install custom desktops?" && if [ -d "$BASE_DIR/desktop" ]; then
   echo "[*] Copying desktop files..."
   for file in "$BASE_DIR/desktop/"*; do
     filename=$(basename "$file")
@@ -61,7 +61,7 @@ if [ -d "$BASE_DIR/desktop" ]; then
   done
   echo "[*] Desktop files configured."
 else
-  echo "[!] Desktop source directory not found: $base_dir/desktop"
+  echo "[!] Desktop source directory not found: $BASE_DIR/desktop"
 fi
 
 echo "[*] Installing Mystical-Blue (Jux) Theme..."
