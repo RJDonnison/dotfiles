@@ -42,6 +42,7 @@ docx2txt
 dolphin
 dolphin-plugins
 dosfstools
+dotnet-sdk
 downgrade
 dracut
 duf
@@ -135,6 +136,8 @@ meld
 mesa-utils
 minecraft-launcher
 modemmanager
+mono
+mono-msbuild
 mtools
 neovim
 netctl

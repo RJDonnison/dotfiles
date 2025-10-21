@@ -63,3 +63,5 @@ alias dotu='dotfiles-update'
 alias makeb='make clean && bear -- make'
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$JAVA_HOME/bin:$PATH
+
+alias acli='arduino-cli'
