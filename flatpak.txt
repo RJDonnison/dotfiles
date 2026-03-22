@@ -2,9 +2,6 @@ com.discordapp.Discord
 com.github.finefindus.eyedropper
 com.github.iwalton3.jellyfin-media-player
 com.heroicgameslauncher.hgl
-com.jetbrains.IntelliJ-IDEA-Ultimate
-com.jetbrains.PyCharm-Professional
-com.jetbrains.Rider
 com.mattermost.Desktop
 com.spotify.Client
 com.todoist.Todoist
@@ -14,4 +11,5 @@ com.vivaldi.Vivaldi
 md.obsidian.Obsidian
 org.inkscape.Inkscape
 org.onlyoffice.desktopeditors
+org.prismlauncher.PrismLauncher
 org.videolan.VLC
