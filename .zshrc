@@ -65,3 +65,8 @@ export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$JAVA_HOME/bin:$PATH
 
 alias acli='arduino-cli'
+export PATH="$HOME/.dotnet/tools:$PATH"
+
+glrun() {
+    bear -- g++ -std=c++17 -I. -o program *.cpp -lGL -lGLU -lglut && ./program
+}

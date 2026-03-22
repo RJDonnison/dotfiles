@@ -1,8 +1,7 @@
 [62bf8f2e-de0c-4ddd-ac84-07440d63fb6e]
 Description=Opacity
-opacityactive=90
 opacityactiverule=2
-opacityinactive=75
+opacityinactive=95
 opacityinactiverule=2
 
 [General]
