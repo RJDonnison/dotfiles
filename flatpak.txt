@@ -5,7 +5,6 @@ com.heroicgameslauncher.hgl
 com.mattermost.Desktop
 com.spotify.Client
 com.todoist.Todoist
-com.unity.UnityHub
 com.valvesoftware.Steam
 com.vivaldi.Vivaldi
 md.obsidian.Obsidian

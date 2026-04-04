@@ -42,15 +42,29 @@ if gum confirm "Would you like to install configs?"; then
 
   for cfg in "$BASE_DIR/config/"*; do
     file=$(basename "$cfg")
-    [ -d "$HOME/.config/$file" ] && mv "$HOME/.config/$file" "$HOME/.config/$file.bak"
-    ln -s "$BASE_DIR/config/$file" "$HOME/.config/$file" && echo "[+] Configured $file"
+    target="$HOME/.config/$file"
+
+    if [ -L "$target" ]; then
+      rm "$target"
+    elif [ -e "$target" ]; then
+      mv "$target" "${target}.bak" && echo "[~] Backed up $file"
+    fi
+
+    ln -s "$cfg" "$target" && echo "[+] Configured $file"
   done
 
-  [ -f "$HOME/.zshrc" ] && mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
-  ln -s "$BASE_DIR/.zshrc" "$HOME/.zshrc" && echo "[+] Configured zsh"
+  for dotfile in ".zshrc" ".p10k.zsh"; do
+    src="$BASE_DIR/$dotfile"
+    target="$HOME/$dotfile"
 
-  [ -f "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak"
-  ln -s "$BASE_DIR/.p10k.zsh" "$HOME/.p10k.zsh" && echo "[+] Configured PowerLevel10k"
+    if [ -L "$target" ]; then
+      rm "$target"
+    elif [ -e "$target" ]; then
+      mv "$target" "${target}.bak" && echo "[~] Backed up $dotfile"
+    fi
+
+    ln -s "$src" "$target" && echo "[+] Configured $dotfile"
+  done
 fi
 
 gum confirm "Would you like to install custom desktops?" && if [ -d "$BASE_DIR/desktop" ]; then
