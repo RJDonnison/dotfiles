@@ -70,3 +70,5 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 glrun() {
     bear -- g++ -std=c++17 -I. -o program *.cpp -lGL -lGLU -lglut && ./program
 }
+
+export PATH=$PATH:/home/reujdon/.dotnet

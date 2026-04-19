@@ -181,6 +181,8 @@ nvidia-settings
 nvidia-utils
 okular
 opencode-bin
+opencode-md-table-formatter
+opencode-quota
 openssh
 oxygen
 oxygen-cursors
@@ -232,6 +234,7 @@ rofi
 rpm-tools
 rsync
 rtkit
+rtl8761b-firmware
 s-nail
 sddm-kcm
 sg3_utils

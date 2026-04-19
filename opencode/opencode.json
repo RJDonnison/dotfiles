@@ -9,5 +9,18 @@
         "baseURL": "http://127.0.0.1:11434/v1"
       }
     }
+  },
+  "plugin": [
+    "@franlol/opencode-md-table-formatter@latest",
+    "@slkiser/opencode-quota",
+    "@tarquinen/opencode-dcp@latest",
+    "@mohak34/opencode-notifier@latest",
+    "envsitter-guard@latest",
+    "opencode-mcp-tool-search"
+  ],
+  "experimental": {
+    "quotaToast": {
+      "enableToast": false
+    }
   }
 }
