@@ -1,6 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
+model: opencode-go/deepseek-v4-pro
 temperature: 0.1
 tools:
   bash: true
@@ -42,7 +43,7 @@ Review the recently modified files and look for opportunities to:
 
 ## Process
 
-1. Run `git diff HEAD` for staged changes, and `git diff` for unstaged.
+1. Run `git diff HEAD` for staged changes, `git diff` for unstaged, and `git diff dev` for branch changes.
 2. For each modified file, analyze for simplification opportunities
 3. Make the simplifications
 4. Run tests to verify behavior is unchanged
