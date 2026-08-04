@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: github-copilot/gpt-4.1
+model: opencode-go/qwen3.7-plus
 temperature: 0.1
 tools:
   bash: true

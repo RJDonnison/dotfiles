@@ -3,7 +3,7 @@
   "agent": {
     "build": {
       "mode": "primary",
-      "model": "github-copilot/gpt-4.1"
+      "model": "opencode-go/qwen3.7-plus"
     },
     "plan": {
       "mode": "primary",
@@ -13,7 +13,6 @@
   "plugin": [
     "@franlol/opencode-md-table-formatter@latest",
     "@slkiser/opencode-quota",
-    "@tarquinen/opencode-dcp@latest",
     "@mohak34/opencode-notifier@latest",
     "envsitter-guard@latest"
   ],
@@ -23,7 +22,33 @@
     }
   },
   "provider": {
-    "copilot": {}
+    "copilot": {
+      "options": {
+        "headers": {
+          "sleev-provider": "copilot",
+          "sleev-harness": "opencode"
+        },
+        "baseURL": "http://127.0.0.1:17321"
+      }
+    },
+    "opencode-go": {
+      "options": {
+        "headers": {
+          "sleev-provider": "opencode-go",
+          "sleev-harness": "opencode"
+        },
+        "baseURL": "http://127.0.0.1:17321"
+      }
+    },
+    "google": {
+      "options": {
+        "headers": {
+          "sleev-provider": "google",
+          "sleev-harness": "opencode"
+        },
+        "baseURL": "http://127.0.0.1:17321"
+      }
+    }
   },
   "mcp": {
     "playwright": {
@@ -64,5 +89,8 @@
       "command": ["dotnet", "format", "--include", "$FILE"],
       "extensions": [".cs"]
     }
+  },
+  "compaction": {
+    "prune": false
   }
 }
