@@ -2,7 +2,7 @@
 description: Skeptical pre-implementation review of plans; finds edge cases and approves or blocks
 mode: subagent
 temperature: 0.1
-model: opencode-go/qwen3.6-max
+model: opencode-go/qwen3.7-max
 steps: 5
 tools:
   write: false

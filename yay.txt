@@ -9,6 +9,7 @@ appimagelauncher
 ark
 aspell
 assimp
+aubio
 avr-gcc
 avr-libc
 b43-fwcutter
@@ -29,6 +30,7 @@ btrfs-progs
 cantarell-fonts
 catdoc
 chafa
+chromium
 clang
 cloudflared
 cmake
@@ -173,6 +175,7 @@ networkmanager-openconnect
 networkmanager-openvpn
 nfs-utils
 nilfs-utils
+ninja
 nodejs
 noto-fonts
 noto-fonts-cjk
@@ -288,6 +291,7 @@ xf86-video-ati
 xfsprogs
 xl2tpd
 xorg-server
+xorg-server-xvfb
 xorg-xdpyinfo
 xorg-xinit
 xorg-xinput

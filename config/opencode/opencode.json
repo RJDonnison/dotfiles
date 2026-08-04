@@ -3,7 +3,7 @@
   "agent": {
     "build": {
       "mode": "primary",
-      "model": "opencode-go/deepseek-v4-pro"
+      "model": "github-copilot/gpt-4.1"
     },
     "plan": {
       "mode": "primary",
@@ -28,13 +28,27 @@
   "mcp": {
     "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest",
+        "--executable-path",
+        "/usr/bin/chromium"
+      ],
       "enabled": true
     },
     "grep": {
       "type": "remote",
       "url": "https://mcp.grep.app",
       "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer ctx7sk-e71a3014-6a28-44f7-90e8-900c289c91c8"
+      }
     }
   },
   "formatter": {
@@ -45,6 +59,10 @@
     "rustfmt": {
       "command": ["rustfmt"],
       "extensions": [".rs"]
+    },
+    "dotnet-format": {
+      "command": ["dotnet", "format", "--include", "$FILE"],
+      "extensions": [".cs"]
     }
   }
 }
