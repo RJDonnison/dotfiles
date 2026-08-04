@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: opencode-go/deepseek-v4-pro
+model: github-copilot/gpt-4.1
 temperature: 0.1
 tools:
   bash: true
