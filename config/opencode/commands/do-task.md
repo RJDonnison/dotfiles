@@ -22,7 +22,7 @@ Steps:
 
 3. Read all generated files in tasks/.
 
-4. Send the task to @plan-agent.
+4. Send the task to @plan agent.
 
 5. Send the resulting plan to @staff-reviewer.
 
