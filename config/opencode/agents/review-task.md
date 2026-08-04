@@ -74,6 +74,7 @@ For untracked files:
 - Completeness
   - Are requirements fully implemented?
   - Are there missing cases or unfinished work?
+  - Have migrations been made for model changes?
 
 - Bugs
   - Null handling
