@@ -18,7 +18,7 @@ Steps:
 1. Verify current git branch contains the task id $1, stop if it doesn't.
 2. Run:
 
-   scrumboard task $1 --include-acs -o tasks/
+   scrumboard task $1 --include-acs -o tasks/$1.json
 
 3. Read all generated files in tasks/.
 
