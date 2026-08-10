@@ -38,6 +38,7 @@ corectrl
 cronie
 cryptsetup
 ctpv-git
+cuda
 debtap
 device-mapper
 dfu-programmer
@@ -150,6 +151,7 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
+llama-cpp
 logrotate
 lsb-release
 lsof
@@ -267,6 +269,7 @@ ttf-bitstream-vera
 ttf-dejavu
 ttf-jetbrains-mono-nerd
 ttf-liberation
+ttf-material-symbols-variable-git
 ttf-opensans
 unrar
 unzip
@@ -280,6 +283,7 @@ wget
 which
 wireplumber
 wl-clipboard
+wmctrl
 wpa_supplicant
 xclip
 xdg-desktop-portal-kde
