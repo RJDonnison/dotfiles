@@ -5,7 +5,7 @@ This is my [Endeavour OS](https://endeavouros.com) with [KDE Plasma](https://kde
 ### Apps
 
 I am using a number of apps on my system that will install, mainly kitty for a terminal,
-lf for my file manager, [LazyVim](https://www.lazyvim.org) as my text editor, and rofi
+quickshell for desktop panels, [LazyVim](https://www.lazyvim.org) as my text editor, and rofi
 as a app launcher.
 
 ### Theme
