@@ -16,6 +16,8 @@ PanelWindow {
     property int itemSpacing: 8
     property int defaultTimeout: 5000
 
+  screen: Quickshell.screens.reduce((a, b) => a.x > b.x ? a : b)
+
     anchors { top: true; right: true }
     margins { top: root.topMargin; right: root.sidebarWidth / 2 }
     implicitWidth: root.popupWidth
@@ -72,7 +74,7 @@ PanelWindow {
                         Text {
                             Layout.fillWidth: true
                             text: card.notif.summary
-                            color: Theme.foregroundColor
+                            color: Theme.textColor
                             font.bold: true
                             font.pixelSize: 13
                             elide: Text.ElideRight
@@ -80,7 +82,7 @@ PanelWindow {
 
                         Text {
                             text: "\u2715"
-                            color: Theme.foregroundColor
+                            color: Theme.textColor
                             font.pixelSize: 12
 
                             MouseArea {
@@ -96,7 +98,7 @@ PanelWindow {
                         visible: card.notif.body.length > 0
                         Layout.fillWidth: true
                         text: card.notif.body
-                        color: Theme.foregroundColor
+                        color: Theme.textColor
                         opacity: 0.85
                         font.pixelSize: 12
                         wrapMode: Text.WordWrap
