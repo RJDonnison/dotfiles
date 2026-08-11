@@ -19,7 +19,7 @@ The font used in the system is [JetBrainsMono](https://www.jetbrains.com/lp/mono
 The provided install script will install all the packages in `yay.txt`, it will also provide the option
 to install all flatpak apps in `flatpak.txt`. It will configure the system and install the theme.
 
-`curl -fsSL https://raw.githubusercontent.com/RJDonnison/dotfiles/main/install.sh | bash`
+`bash -c "$(curl -fsSL https://raw.githubusercontent.com/RJDonnison/dotfiles/main/install.sh)"`
 
 ### Post Install
 
