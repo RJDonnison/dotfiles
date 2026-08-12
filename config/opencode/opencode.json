@@ -3,11 +3,11 @@
   "agent": {
     "build": {
       "mode": "primary",
-      "model": "opencode-go/qwen3.7-plus"
+      "model": "zai-coding-plan/glm-4.7"
     },
     "plan": {
       "mode": "primary",
-      "model": "opencode-go/qwen3.7-max"
+      "model": "zai-coding-plan/glm-5.2"
     }
   },
   "plugin": [
@@ -40,10 +40,19 @@
         "baseURL": "http://127.0.0.1:17321"
       }
     },
-    "google": {
+    "opencode": {
       "options": {
         "headers": {
-          "sleev-provider": "google",
+          "sleev-provider": "opencode",
+          "sleev-harness": "opencode"
+        },
+        "baseURL": "http://127.0.0.1:17321"
+      }
+    },
+    "zai-coding-plan": {
+      "options": {
+        "headers": {
+          "sleev-provider": "zai-coding-plan",
           "sleev-harness": "opencode"
         },
         "baseURL": "http://127.0.0.1:17321"

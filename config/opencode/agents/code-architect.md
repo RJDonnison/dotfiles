@@ -2,7 +2,7 @@
 description: Proposes and plans structural changes, refactoring, and design patterns
 mode: subagent
 temperature: 0.1
-model: opencode-go/qwen3.7-plus
+model: zai-coding-plan/glm-5.2
 steps: 5
 tools:
   write: false

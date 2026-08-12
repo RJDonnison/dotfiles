@@ -40,6 +40,23 @@ Item {
         onTriggered: {
             if (!pollProc.running) pollProc.running = true;
         }
+      }
+
+    function splitWmClass(wmClass) {
+      const n = wmClass.length;
+      if (n % 2 === 1) {
+          const mid = (n - 1) / 2;
+          if (wmClass[mid] === ".") {
+              const left = wmClass.slice(0, mid);
+              const right = wmClass.slice(mid + 1);
+              if (left === right) {
+                  return { instance: left, className: right };
+              }
+          }
+      }
+      const dotIdx = wmClass.indexOf(".");
+      if (dotIdx === -1) return { instance: wmClass, className: wmClass };
+      return { instance: wmClass.slice(0, dotIdx), className: wmClass.slice(dotIdx + 1) };
     }
 
     function handlePollResult(text) {
@@ -75,9 +92,7 @@ Item {
 
             if (desktop < 0) continue;
 
-            const parts = wmClass.split(".");
-            const instance = parts[0] || wmClass;
-            const className = parts[1] || parts[0] || wmClass;
+            const { instance, className } = root.splitWmClass(wmClass);
 
             const lowerInstance = instance.toLowerCase();
             const lowerClass = className.toLowerCase();

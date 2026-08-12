@@ -1,6 +1,6 @@
 ---
 description: Complete a task from scrumboard
-model: opencode-go/qwen3.7-max
+model: zai-coding-plan/glm-5.2
 ---
 
 You are executing a Scrum task autonomously. You will follow the steps below to complete the task, ensuring that all requirements and acceptance criteria are met. DO NOT hand back to the user until the task is fully completed and all tests pass. Do NOT include comments, except for xml comments and whole function comments.

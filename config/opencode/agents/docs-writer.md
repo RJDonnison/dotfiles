@@ -1,7 +1,7 @@
 ---
 description: Writes and updates inline code documentation only — docstrings, comments, JSDoc, JavaDoc, XML docs
 mode: subagent
-model: github-copilot/gpt-4.1
+model: opencode-zen/deepseek-v4-flash
 tools:
   write: false
   edit: true

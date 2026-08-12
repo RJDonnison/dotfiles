@@ -256,6 +256,7 @@ smartmontools
 sof-firmware
 spectacle
 steam-devices-git
+stockfish
 sudo
 sysfsutils
 systemd-sysvcompat
@@ -263,6 +264,7 @@ texinfo
 timeshift
 tk
 tldr
+tmux
 tracktion-download-manager
 tracktion-waveform
 ttf-bitstream-vera

@@ -1,7 +1,7 @@
 ---
 description: Reviews code for quality and best practices
 mode: subagent
-model: opencode-go/qwen3.7-plus
+model: zai-coding-plan/glm-4.7
 temperature: 0.1
 tools:
   bash: true

@@ -2,7 +2,7 @@
 description: Review branch changes against project requirements and coding standards
 mode: subagent
 temperature: 0.1
-model: opencode-go/qwen3.7-plus
+model: zai-coding-plan/glm-4.7
 steps: 3
 permissions:
   edit: deny
