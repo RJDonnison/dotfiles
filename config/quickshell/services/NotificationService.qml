@@ -46,7 +46,7 @@ Singleton {
 
     FileView {
         id: historyFile
-        path: Quickshell.dataPath() + "/notifications.json"
+        path: Quickshell.env("HOME") + "/.local/share/quickshell/notifications.json"
         blockLoading: true
         blockWrites: false
     }
@@ -75,6 +75,11 @@ Singleton {
 
     function markAllRead() {
         root.historyEntries = root.historyEntries.map(e => Object.assign({}, e, { read: true }))
+        root.saveHistory()
+    }
+
+    function dismissEntry(id) {
+        root.historyEntries = root.historyEntries.filter(e => e.id !== id)
         root.saveHistory()
     }
 }

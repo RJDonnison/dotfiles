@@ -1,7 +1,7 @@
 ---
 description: Writes and updates inline code documentation only — docstrings, comments, JSDoc, JavaDoc, XML docs
 mode: subagent
-model: opencode-zen/deepseek-v4-flash
+model: zai-coding-plan/glm-4.7
 tools:
   write: false
   edit: true

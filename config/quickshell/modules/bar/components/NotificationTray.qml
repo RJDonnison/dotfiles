@@ -91,6 +91,27 @@ Item {
                     color: Qt.darker(Theme.backgroundColor, 1.1)
                     implicitHeight: histCol.implicitHeight + 16
 
+                    Row {
+                        anchors.top: parent.top
+                        anchors.right: parent.right
+                        anchors.topMargin: 4
+                        anchors.rightMargin: 4
+
+                        Text {
+                            text: "\u2715"
+                            color: Theme.textColor
+                            opacity: 0.6
+                            font.pixelSize: 10
+
+                            MouseArea {
+                                anchors.fill: parent
+                                anchors.margins: -6
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: NotificationService.dismissEntry(modelData.id)
+                            }
+                        }
+                    }
+
                     Column {
                         id: histCol
                         anchors.fill: parent

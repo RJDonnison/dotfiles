@@ -6,9 +6,22 @@ import qs.modules
 import qs.modules.bar
 
 ShellRoot {
-  Bar {id: sidebar}
+    property var targetScreen: Quickshell.screens.reduce((a, b) => a.x > b.x ? a : b)
 
-  Notifications {
-      sidebarWidth: Theme.barWidth
-  }
+    Loader {
+        id: barLoader
+        active: true
+        sourceComponent: Component {
+            Bar { screen: targetScreen }
+        }
+    }
+
+    onTargetScreenChanged: {
+        barLoader.active = false
+        barLoader.active = true
+    }
+
+    Notifications {
+        sidebarWidth: Theme.barWidth
+    }
 }

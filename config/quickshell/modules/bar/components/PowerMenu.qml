@@ -35,6 +35,7 @@ Item {
   }
 
   PopupMenu {
+    id: popup
     anchorItem: powerIcon
     menuVisible: root.expanded
     onCloseRequested: root.expanded = false

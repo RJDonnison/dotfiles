@@ -22,33 +22,6 @@
     }
   },
   "provider": {
-    "copilot": {
-      "options": {
-        "headers": {
-          "sleev-provider": "copilot",
-          "sleev-harness": "opencode"
-        },
-        "baseURL": "http://127.0.0.1:17321"
-      }
-    },
-    "opencode-go": {
-      "options": {
-        "headers": {
-          "sleev-provider": "opencode-go",
-          "sleev-harness": "opencode"
-        },
-        "baseURL": "http://127.0.0.1:17321"
-      }
-    },
-    "opencode": {
-      "options": {
-        "headers": {
-          "sleev-provider": "opencode",
-          "sleev-harness": "opencode"
-        },
-        "baseURL": "http://127.0.0.1:17321"
-      }
-    },
     "zai-coding-plan": {
       "options": {
         "headers": {
@@ -57,7 +30,8 @@
         },
         "baseURL": "http://127.0.0.1:17321"
       }
-    }
+    },
+    "copilot": {}
   },
   "mcp": {
     "playwright": {

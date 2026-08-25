@@ -1,20 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
-
-INSTALL_DIR="$HOME/.dotfiles"
-
-if [ -d "$INSTALL_DIR" ]; then
-  echo "Dotfiles already cloned at $INSTALL_DIR, pulling latest..."
-  git -C "$INSTALL_DIR" pull
-else
-  git clone https://github.com/RJDonnison/dotfiles "$INSTALL_DIR"
-fi
-cd "$INSTALL_DIR"
-
-if ! command -v gum &>/dev/null; then
-  yay -S --noconfirm gum
-fi
+set -e
 
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 COLOR_DIR="$HOME/.local/share/color-schemes"
@@ -36,29 +22,6 @@ gum confirm "Would you like to install flatpak apps?" && grep -v '^$' "$BASE_DIR
 gum confirm "Would you like to configure bluetooth?" && sudo systemctl start bluetooth && sudo systemctl enable --now bluetooth
 
 if gum confirm "Would you like to install configs?"; then
-  echo "[*] Setting up quickshell autostart..."
-
-  mkdir -p "$HOME/.config/systemd/user"
-  cat >"$HOME/.config/systemd/user/quickshell.service" <<'EOF'
-[Unit]
-Description=Quickshell
-After=graphical-session.target
-PartOf=graphical-session.target
-
-[Service]
-ExecStart=/usr/bin/qs
-Restart=on-failure
-RestartSec=2
-
-[Install]
-WantedBy=graphical-session.target
-EOF
-
-  systemctl --user daemon-reload
-  systemctl --user enable --now quickshell.service
-
-  echo "[+] Quickshell configured"
-
   if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "[*] Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

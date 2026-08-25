@@ -19,7 +19,7 @@ PanelWindow {
   screen: Quickshell.screens.reduce((a, b) => a.x > b.x ? a : b)
 
     anchors { top: true; right: true }
-    margins { top: root.topMargin; right: root.sidebarWidth / 2 }
+    margins { top: root.topMargin; right: root.sidebarWidth + 8 }
     implicitWidth: root.popupWidth
     implicitHeight: popupColumn.implicitHeight
     color: "transparent"
@@ -45,7 +45,7 @@ PanelWindow {
 
                 Timer {
                     running: !card.critical
-                    interval: card.notif.expireTimeout > 0 ? card.notif.expireTimeout * 1000 : root.defaultTimeout
+                    interval: card.notif.expireTimeout > 0 ? card.notif.expireTimeout : root.defaultTimeout
                     onTriggered: card.notif.expire()
                 }
 

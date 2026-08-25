@@ -5,6 +5,9 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
+android-sdk-cmdline-tools-latest
+android-tools
+android-udev
 appimagelauncher
 ark
 aspell
@@ -84,6 +87,7 @@ flatpak
 flatpak-kcm
 fwupd
 gamescope
+ghgrab-bin
 git
 git-lfs
 glances
@@ -307,4 +311,5 @@ xsettingsd
 xterm
 yarn
 yay
+youtube-tui
 zsh
